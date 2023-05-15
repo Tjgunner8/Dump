@@ -30,12 +30,13 @@ def getfemaleHeight(FileData,height):
     for i in range(1,len(FileData)):
         if FileData[i][0] == False:
             height.append(FileData[i][2])
+    return height
 
 def getmaleHeight(FileData,height): 
-        for i in range(1,len(FileData)):
-            if FileData[i][0] == True:
-                height.append(FileData[i][2])
-
+    for i in range(1,len(FileData)):
+        if FileData[i][0] == True:
+            height.append(FileData[i][2])
+    return height
 
 
 height = []
@@ -63,6 +64,7 @@ def meanHeight(data):
         total += data[i]
     mean = round(total/len(data),2)
     return mean
+
 def bar_graph(var1, value):
     var1.begin_fill()
     var1.left(90)
@@ -70,7 +72,7 @@ def bar_graph(var1, value):
     var1.write(" " + str(value))
 
     var1.right(90)
-    var1.forward(1)
+    var1.forward(value)
     var1.right(90)
     var1.forward(value)
     var1.left(90)
@@ -86,23 +88,16 @@ var1.color("green", "white")
 var1.pensize(3)
 var1.speed(100000000000000000)
 var1.penup()
-var1.goto(-400,0)
+var1.goto(0,0)
 var1.pendown()
-var2 = turtle.Turtle()
-var2.color("red", "white")
-var2.pensize(3)
-var2.speed(100000000000000000)
-var2.penup()
-var2.goto(-400,-200)
-var2.pendown()
+
 measureheight = femaleH
-measure2 = maleH
+
 for i in measureheight:
-    bar_graph(var1, i)
-for j in measure2:
-    bar_graph(var2,j)
+    #bar_graph(var1, i)
+    pass
 
-a.mainloop()
+#ßa.mainloop()
 
-
-print(maleH,"\n",femaleH)
+print(maleH,"\n")
+print(femaleH)
