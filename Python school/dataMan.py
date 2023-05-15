@@ -26,18 +26,22 @@ def parseData(FileData):
 
 FileData = parseData(FileData)
 
-def getHeight(FileData,height): 
+def getfemaleHeight(FileData,height): 
+    for i in range(1,len(FileData)):
+        if FileData[i][0] == False:
+            height.append(FileData[i][2])
+
+def getmaleHeight(FileData,height): 
         for i in range(1,len(FileData)):
-            if FileData[i][0] == False:
+            if FileData[i][0] == True:
                 height.append(FileData[i][2])
 
 
 
 height = []
-heights2 = []
 
-maleH = getHeight(FileData,height)
-femaleH = getHeight(FileData,height)
+maleH = getmaleHeight(FileData,height)
+femaleH = getfemaleHeight(FileData,height)
 
 
 def bubbleSort(arr):
@@ -73,7 +77,7 @@ def bar_graph(var1, value):
     var1.end_fill()
     var1.forward(10)
 
-"""
+
 a = turtle.Screen()
 a.bgcolor("black")
 var1 = turtle.Turtle()
@@ -99,6 +103,6 @@ for j in measure2:
     bar_graph(var2,j)
 
 a.mainloop()
-"""
+
 
 print(maleH,"\n",femaleH)
